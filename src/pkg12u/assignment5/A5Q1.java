@@ -46,10 +46,8 @@ public class A5Q1 {
         } // If the number is not the smallest number, add it to the list
         else {
             // Go through the list until the right spot is found
-            int counter = 0;
             while (num < node.getNum()) {
                 node = node.getNext();
-                counter++;
             }
             // @ node just before insert
             IntNode temp = new IntNode(num);
@@ -82,29 +80,55 @@ public class A5Q1 {
 
     public void remove(int num) {
         IntNode node = head;
-        IntNode node2 = head;
-
-        int pos = 0;
-        // move to the spot just before
-        while (num > node.getNum()) {
-            node = node.getNext();
-            pos++;
+        // removing the first number
+        if (num == node.getNum()) {
+            head = head.getNext();
+        } // Removing the last number
+        else if (num == numItems - 1) {
+            // move to the spot just before
+            for (int i = 0; i < size() - 1; i++) {
+                node = node.getNext();
+            }
+            // the node to remove
+            IntNode toRemove = node.getNext();
+            // its next node
+            IntNode next = toRemove.getNext();
+            // set all the links
+            node.setNext(next);
+            toRemove.setNext(null);
+        } //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // If the number is not in the list
+        else if (num) {
+        } //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // removing from the middle
+        else {
+            // move to the spot just before
+            while (num > node.getNext().getNum()) {
+                node = node.getNext();
+            }
+            // the node to remove
+            IntNode toRemove = node.getNext();
+            // its next node
+            IntNode next = toRemove.getNext();
+            // set all the links
+            node.setNext(next);
+            toRemove.setNext(null);
         }
-        System.out.println("");
-        System.out.println(node.getNum());
-        System.out.println("");
-        for (int i = 0; i < pos; i++) {
-        }
-//        while(node2.getNum() < node.getNum()){
-//            node2 = node2.getNext();
-//        }
-        // the node to remove
-        IntNode toRemove = node;
-        // its next node
-        IntNode next = toRemove.getNext();
-        // set all the links
-        node.setNext(next);
-        toRemove.setNext(null);
+        // decrease the counter
         numItems--;
     }
 
@@ -133,10 +157,18 @@ public class A5Q1 {
         System.out.println("Position 1: " + list.get(1));
         System.out.println("Position 2: " + list.get(2));
         System.out.println("Position 3: " + list.get(3));
-        list.remove(6);
+//        list.add(8);
+//        System.out.println("Size: " + list.size());
+//        System.out.println("Position 0: " + list.get(0));
+//        System.out.println("Position 1: " + list.get(1));
+//        System.out.println("Position 2: " + list.get(2));
+//        System.out.println("Position 3: " + list.get(3));
+//        System.out.println("Position 4: " + list.get(4));
+        list.remove(3);
         System.out.println("Size: " + list.size());
         System.out.println("Position 0: " + list.get(0));
         System.out.println("Position 1: " + list.get(1));
         System.out.println("Position 2: " + list.get(2));
+//        System.out.println("Position 3: " + list.get(3));
     }
 }
