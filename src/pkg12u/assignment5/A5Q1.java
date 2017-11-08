@@ -80,9 +80,20 @@ public class A5Q1 {
 
     public void remove(int num) {
         IntNode node = head;
+
+
+
+
+
+
+
+
+
         // removing the first number
         if (num == node.getNum()) {
             head = head.getNext();
+            // decrease the counter
+            numItems--;
         } // Removing the last number
         else if (num == numItems - 1) {
             // move to the spot just before
@@ -96,40 +107,28 @@ public class A5Q1 {
             // set all the links
             node.setNext(next);
             toRemove.setNext(null);
-        } //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        // If the number is not in the list
-        else if (num) {
-        } //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        // removing from the middle
+            // decrease the counter
+            numItems--;
+        } // removing from the middle
         else {
             // move to the spot just before
             while (num > node.getNext().getNum()) {
                 node = node.getNext();
             }
+            // decrease the counter if the number is in the list
+            if (num == node.getNext().getNum()) {
+                numItems--;
+            }
+            System.out.println("Kwame " + node.getNum());
             // the node to remove
             IntNode toRemove = node.getNext();
             // its next node
             IntNode next = toRemove.getNext();
             // set all the links
             node.setNext(next);
-            toRemove.setNext(null);
+
         }
-        // decrease the counter
-        numItems--;
+
     }
 
     /**
