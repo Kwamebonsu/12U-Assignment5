@@ -111,6 +111,23 @@ public class A5Q1 {
             numItems--;
         } // removing from the middle
         else {
+            //
+            //
+            // what about the second number
+            //
+            //
+            if (num == node.getNext().getNum()) {
+                // the node to remove
+                IntNode toRemove = node.getNext();
+                // its next node
+                IntNode next = toRemove.getNext();
+                // set all the links
+                node.setNext(next);
+            }
+            //
+            //
+            //
+            //
             // move to the spot just before
             while (num > node.getNext().getNum()) {
                 node = node.getNext();
